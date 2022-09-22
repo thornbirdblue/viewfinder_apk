@@ -31,12 +31,12 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
  * AppState holds all application global state.
  */
 public class AppState extends Application {
-/* bri
+
   static {
     // TODO(marc): for gyp to generate a nicer name for this.
     System.loadLibrary("_clients_android_jni_viewfinder_gyp");
   }
-*/
+
   private static final String TAG = "viewfinder.AppState";
   private static final String PREFS_NAME = "ViewfinderPreferences";
 
@@ -120,7 +120,7 @@ public class AppState extends Application {
     }
 
     Log.i(TAG, "Preparing to load native app state");
-    /* bri
+    
     mNativeState = LoadNative(getFilesDir().toString(), mUnlinkAtStartup, getServerPort());
 
     mDB = new DB(GetDBHandle(mNativeState));
@@ -134,8 +134,8 @@ public class AppState extends Application {
     mPhotoStorage = new PhotoStorage(GetPhotoStorage(mNativeState));
     mPhotoTable = new PhotoTable(GetPhotoTable(mNativeState));
     mViewpointTable = new ViewpointTable(GetViewpointTable(mNativeState));
-*/
-// bri    RunMaintenance(mNativeState, mUnlinkAtStartup);
+
+    RunMaintenance(mNativeState, mUnlinkAtStartup);
 
     Utils.dumpBuildInfo();
 
@@ -165,7 +165,7 @@ public class AppState extends Application {
     super.onCreate();
 
     // Tell the native app state we are ready.
-    // bri AppDidBecomeActive(mNativeState);
+    AppDidBecomeActive(mNativeState);
   }
 
   private void setupServerHost() {

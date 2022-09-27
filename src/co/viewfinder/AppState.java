@@ -496,7 +496,7 @@ public class AppState extends Application {
   private static native long GetPhotoTable(long state);
   private static native long GetViewpointTable(long state);
   private static native byte[] GetUserCookie(long state);
-  private static  long GetUserID(long state){return 1;};
+  private static native long GetUserID(long state);
   private static native byte[] GetXsrfCookie(long state);
   private static native void SetAuthCookies(long state, byte[] user_cookie, byte[] xsrf_cookie);
 }
